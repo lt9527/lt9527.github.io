@@ -155,6 +155,203 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-与HTTP协作的web服务器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/27/与HTTP协作的web服务器/">与HTTP协作的web服务器</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/27/与HTTP协作的web服务器/" class="archive-article-date">
+  	<time datetime="2017-10-27T04:12:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一台web服务器可搭建多个独立域名的web网站，也可作为通信路径上的中转服务器提升传输效率。<br>客户端使用HTTP协议访问服务器时，会经常采用类似www.hackr.jp这样的主机和域名。<br>在互联网上，域名通过DNS服务映射到IP地址（域名解析）知乎访问目标。当请求发送到服务器时，已经是已IP地址形式访问。<br>同一服务器托管俩个域名，解析后获得相同的IP地址，因此在发送HTTP请求是，必须在Host首部内完整指定主机名或域名的URI。</p>
+<p>代理<br>具有转发功能的应用程序，接收客户端请求并转发给服务器，同时也接收服务器返回的响应并转发给客户端。</p>
+<p>网关<br>装法其他服务器通信数据的服务器，接收从客户端发送过来的请求是，它就像自己拥有资源的服务器一样对请求进行处理。</p>
+<p>隧道<br>在相隔甚远的客户端和服务器之间进行中转</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/27/与HTTP协作的web服务器/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Selenium" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/27/Selenium/">Selenium</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/27/Selenium/" class="archive-article-date">
+  	<time datetime="2017-10-27T03:00:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Selenium 自动化测试工具。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</div><div class="line"><span class="keyword">from</span> selenium.webdriver.common.keys <span class="keyword">import</span> Keys</div><div class="line"></div><div class="line">driver = webdriver.Chrome()</div><div class="line">driver.get(<span class="string">"http://www.python.org"</span>)</div><div class="line"><span class="keyword">assert</span> <span class="string">"Python"</span> <span class="keyword">in</span> driver.title</div><div class="line">elem = driver.find_element_by_name(<span class="string">"q"</span>)</div><div class="line">elem.send_keys(<span class="string">"pycon"</span>)</div><div class="line">elem.send_keys(Keys.RETURN)</div><div class="line"><span class="keyword">print</span> driver.page_source</div></pre></td></tr></table></figure></p>
+<p>其中 driver.get 方法会打开请求的URL，WebDriver 会等待页面完全加载完成之后才会返回，即程序会等待页面的所有内容加载完成，JS渲染完毕之后才继续往下执行。注意：如果这里用到了特别多的 Ajax 的话，程序可能不知道是否已经完全加载完毕。<br>WebDriver 提供了许多寻找网页元素的方法，譬如 find_element<em>by</em>* 的方法。例如一个输入框可以通过  find_element_by_name 方法寻找 name 属性来确定。<br>然后我们输入来文本然后模拟点击了回车，就像我们敲击键盘一样。我们可以利用 Keys 这个类来模拟键盘输入。<br>最后最重要的一点<br>取网页渲染后的源代码。<br>输出 page_source 属性即可。<br>这样，我们就可以做到网页的动态爬取了。</p>
+<p>页面操作<br>获取元素<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">element = driver.find_element_by_id(<span class="string">"passwd-id"</span>)</div><div class="line">element = driver.find_element_by_name(<span class="string">"passwd"</span>)</div><div class="line">element = driver.find_elements_by_tag_name(<span class="string">"input"</span>)</div><div class="line">element = driver.find_element_by_xpath(<span class="string">"//input[@id='passwd-id']"</span>)</div></pre></td></tr></table></figure></p>
+<p>输入内容<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">element.send_keys(<span class="string">"some text"</span>)</div></pre></td></tr></table></figure></p>
+<p>模拟按键<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">element.send_keys(<span class="string">"and some"</span>, Keys.ARROW_DOWN)</div></pre></td></tr></table></figure></p>
+<p>清除<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">element.clear()</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/27/Selenium/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-python-re模块" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/27/python-re模块/">python re模块</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/27/python-re模块/" class="archive-article-date">
+  	<time datetime="2017-10-27T01:29:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.re.match(pattern, string, flags) 尝试从字符串的开始匹配一个模式<br>2.re.search(pattern, string, flags)函数会在字符串内查找模式匹配,只到找到第一个匹配然后返回，如果字符串没有匹配，则返回None。<br>re.match与re.search的区别：re.match只匹配字符串的开始，如果字符串开始不符合正则表达式，则匹配失败，函数返回None；而re.search匹配整个字符串，直到找到一个匹配。<br>3.re.sub(pattern, repl, string, count)用于替换字符串中的匹配项。<br>4.re.split()用来分割字符串，<br>5.re.findall()找到re匹配的所有子串，并把它们作为一个列表返回。这个匹配是从左到右有序地返回。如果无匹配，返回空列表。<br>6.re.compile()可以把正则表达式编译成一个正则表达式对象<br>7.re.finditer(pattern, string, flags=0)找到re匹配的所有子串，并把它们作为一个迭代器返回。这个匹配是从左到右有序地返回。如果无匹配，返回空列表。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>it = re.finditer(<span class="string">r"\d+"</span>,<span class="string">"12a32bc43jf3"</span>) </div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> match <span class="keyword">in</span> it: </div><div class="line">  		<span class="keyword">print</span> match.group()</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/27/python-re模块/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-JSON" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -242,6 +439,7 @@
 <p>HTTP方法<br>1.GET:获取资源<br>GET方法用来请求访问已被URI识别的资源，指定的资源经服务器端解析后返回响应内容。<br>2.POST<br>POST方法用来传输实体的主体。<br>3.PUT方法<br>PUT方法用来传输文件</p>
 <p>管线化<br>不用等待响应，亦可直接发送下一个请求</p>
 <p>Cookie技术<br>Cookie技术在请求和响应报文中写入Cookie信息来控制客户端的状态</p>
+<p>HTTP (未加密协议)<br>1.通信使用明文(不加密)，内容可能会被窃听<br>2.不验证通信方身份，可能遭遇伪装<br>3.无法证明报文的完整性，所以有可能已遭篡改</p>
 
       
 
